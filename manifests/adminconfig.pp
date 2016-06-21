@@ -21,7 +21,7 @@ define ipa::adminconfig (
   }
 
   $kadminlocalcmd = shellquote('/usr/sbin/kadmin.local','-q',"ktadd -norandkey -k ${adminhomedir}/admin.keytab admin")
-  $chownkeytabcmd = shellquote('/usr/bin/chown',"${adminuidnumber}:${adminuidnumber}","${adminhomedir}/admin.keytab")
+  $chownkeytabcmd = shellquote('/bin/chown',"${adminuidnumber}:${adminuidnumber}","${adminhomedir}/admin.keytab")
   $k5startcmd = shellquote('/sbin/runuser','-l','admin','-c',"/usr/bin/k5start -f ${adminhomedir}/admin.keytab -U")
 
   exec { 'admin_keytab':
