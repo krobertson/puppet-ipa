@@ -156,7 +156,9 @@ class ipa::master (
     }
   }
 
-  ipa::createreplicas { $::fqdn:
+  if defined('$::ipa_replicascheme') {
+    ipa::createreplicas { $::fqdn:
+    }
   }
 
   firewall { '101 allow IPA master TCP services (http,https,kerberos,kpasswd,ldap,ldaps)':

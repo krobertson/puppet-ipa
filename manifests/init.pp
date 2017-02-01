@@ -163,6 +163,10 @@ class ipa (
     }
   }
 
+  if !defined('$::lsbmajdistrelease') {
+    fail("Unable to determine ::lsbmajdistrelease")
+  }
+
   if $ipa::mkhomedir and $::osfamily == 'RedHat' and $::lsbmajdistrelease == '6' {
     service { 'oddjobd':
       ensure => 'running',
