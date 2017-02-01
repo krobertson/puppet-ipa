@@ -98,7 +98,7 @@ class ipa::master (
     else {
       $forwarderopts = '--no-forwarders'
     }
-    $dnsopt = '--setup-dns'
+    $dnsopt = '--setup-dns --no-host-dns'
     realize Package['bind-dyndb-ldap']
   }
   else {
