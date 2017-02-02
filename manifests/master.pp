@@ -100,6 +100,7 @@ class ipa::master (
     }
     $dnsopt = '--setup-dns --no-host-dns'
     realize Package['bind-dyndb-ldap']
+    realize Package['ipa-server-dns']
   }
   else {
     $dnsopt = ''
